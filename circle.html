@@ -1,0 +1,20 @@
+<canvas id="canvas" width="300" height="200" style="border:1px solid #000"></canvas>
+<script>
+const ctx = document.getElementById("canvas").getContext("2d");
+let x = 50, y = 50, dx = 2, dy = 2;
+
+function draw() {
+  ctx.clearRect(0, 0, 300, 200);
+  ctx.beginPath();
+  ctx.arc(x, y, 20, 0, Math.PI * 2);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  x += dx; y += dy;
+
+  if (x < 20 || x > 280) dx = -dx;
+  if (y < 20 || y > 180) dy = -dy;
+
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
